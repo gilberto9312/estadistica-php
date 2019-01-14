@@ -1,4 +1,77 @@
    <?php
+	//////////////////////////////////////////////////////////////////////////////
+	/*@author: Gilberto Asuaje <@gilberto9312, asuajegilberto@gmail.com>        //
+	/*@Version: 1.1                                                             //
+	/*@Descripcion: Recibe un array() cada función y retorna array()            //
+	/*ó valor númerico según la función solicitada                              //
+	/*////////////////////////////////////////////////////////////////////////////
+
+
+
+    private function calcularMediana($array)
+    {
+        $cantidad = count($array);
+        sort($array);
+            $posMediana = ($cantidad + 1) / 2;
+            $mediana = $cantidad % 2 != 0 ? ($posMediana - 1) : (($posMediana - 1 )+ $posMediana) / 2;    
+        $aux=array();        
+        foreach ($array as $key => $value) 
+        {
+            
+            if((intval($mediana)-1)==$key)
+            {
+                $aux[$key]['mediana']=$value;
+            }   
+            
+        }
+
+        return $aux;
+    }
+
+
+        private function calcularModa($array)
+    {
+
+        $cuenta = array_count_values($array);
+        
+        arsort($cuenta);
+        
+        if (max($cuenta) == 1)
+        {
+            return 0;
+        }
+        else
+        {
+            return key($cuenta);
+        }
+    }
+
+
+    private function calcularFrecuenciaModa($array, $moda)
+    {
+        $frecuencia = 0;
+        foreach($array as $datos)
+        {
+            if ($datos == $moda)
+            {
+                $frecuencia++;
+            }              
+        }
+        
+        return $frecuencia;
+    }
+
+
+    private function calcularMedia ($array)
+    {
+        $contador = count($array);
+        $suma = 0;
+        foreach ($array as $value) {
+            $suma = $value + $suma;
+            $media = $suma/$contador;
+        }
+        return $media;
+    }
 
 	 private function calcularDesviacion($array, $media)
     {
